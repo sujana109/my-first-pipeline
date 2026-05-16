@@ -1,0 +1,41 @@
+name: My First Pipeline Test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  stage-1-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate downloading code
+        run: echo "✅ Code downloaded successfully"
+
+      - name: Simulate installing dependencies
+        run: echo "✅ All dependencies installed"
+
+      - name: Simulate building the app
+        run: echo "✅ App built successfully"
+
+  stage-2-test:
+    needs: stage-1-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run fake test 1
+        run: echo "✅ Login test passed"
+
+      - name: Run fake test 2
+        run: echo "✅ Payment test passed"
+
+      - name: Run fake test 3
+        run: echo "✅ All 3 tests passed"
+
+  stage-3-deploy:
+    needs: stage-2-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate deploying to server
+        run: echo "🚀 Deploying to production..."
+
+      - name: Deployment complete
+        run: echo "✅ App is live at https://myapp.com"
